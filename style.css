@@ -1,0 +1,463 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --rosa: #df7f9d;
+    --rosa-escuro: #c85f83;
+    --rosa-claro: #fce8ee;
+    --fundo: #fff8fa;
+    --branco: #ffffff;
+    --texto: #49343d;
+    --texto-suave: #967c86;
+    --borda: #f2dfe6;
+    --verde: #77a88c;
+    --sombra: 0 6px 22px rgba(174, 105, 130, 0.09);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--texto);
+    background: linear-gradient(160deg, #fff6f9, #fffafb 50%, #fceef3);
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.cabecalho {
+    padding: 32px 20px 28px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid var(--borda);
+}
+
+.cabecalho h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--rosa-escuro);
+    letter-spacing: -1px;
+}
+
+.cabecalho h1 span {
+    color: var(--rosa);
+}
+
+.cabecalho p {
+    margin-top: 8px;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+.container {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    padding: 30px 24px 50px;
+}
+
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 38px;
+}
+
+.cartao-resumo {
+    padding: 22px;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+}
+
+.cartao-resumo span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+    color: var(--rosa-escuro);
+    background: var(--rosa-claro);
+    border-radius: 12px;
+    font-size: 1.3rem;
+}
+
+.cartao-resumo p {
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+.cartao-resumo strong {
+    font-size: 1.35rem;
+    overflow-wrap: anywhere;
+}
+
+.titulo-secao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.titulo-secao h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--texto);
+}
+
+.titulo-secao p {
+    margin-top: 5px;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+#botao-adicionar,
+.botoes-formulario button[type="submit"] {
+    border: none;
+    color: white;
+    background: linear-gradient(135deg, #e991ad, #d76d91);
+    border-radius: 14px;
+    padding: 12px 18px;
+    font-weight: 600;
+    box-shadow: 0 5px 12px rgba(215, 109, 145, 0.2);
+}
+
+#formulario-container {
+    margin-bottom: 28px;
+    padding: 24px;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+}
+
+#formulario-container[hidden] {
+    display: none;
+}
+
+#formulario-produto {
+    display: grid;
+    gap: 10px;
+}
+
+#formulario-produto label {
+    margin-top: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+#formulario-produto input,
+#formulario-produto select {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    color: var(--texto);
+    background: #fffafb;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    outline: none;
+}
+
+#formulario-produto input:focus,
+#formulario-produto select:focus {
+    border-color: var(--rosa);
+    box-shadow: 0 0 0 3px rgba(223, 127, 157, 0.13);
+}
+
+.botoes-formulario {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.botoes-formulario button {
+    padding: 11px 18px;
+    border-radius: 12px;
+}
+
+#botao-cancelar {
+    color: var(--texto);
+    background: white;
+    border: 1px solid var(--borda);
+}
+
+.grade-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#mensagem-vazia {
+    grid-column: 1 / -1;
+    padding: 42px 20px;
+    text-align: center;
+    color: var(--texto-suave);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px dashed #eacbd7;
+    border-radius: 20px;
+}
+
+.rodape {
+    padding: 24px 16px;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--borda);
+}
+
+/* Ajustes para tablets e celulares */
+@media (max-width: 700px) {
+    .container {
+        padding: 22px 16px 36px;
+    }
+
+    .resumo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .cartao-resumo {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .cartao-resumo:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .grade-produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .titulo-secao {
+        align-items: flex-start;
+    }
+
+    #botao-adicionar {
+        padding: 11px 13px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 360px) {
+    .resumo {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao-resumo:last-child {
+        grid-column: auto;
+    }
+
+    .grade-produtos {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo-secao {
+        flex-direction: column;
+    }
+}
+
+
+.cartao-produto {
+    min-width: 0;
+    overflow: hidden;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cartao-produto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(174, 105, 130, 0.15);
+}
+
+.imagem-produto {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: var(--rosa-claro);
+}
+
+.conteudo-produto {
+    display: grid;
+    gap: 9px;
+    padding: 14px;
+}
+
+.categoria-produto {
+    justify-self: start;
+    padding: 4px 9px;
+    color: var(--rosa-escuro);
+    background: var(--rosa-claro);
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+.conteudo-produto h3 {
+    overflow-wrap: anywhere;
+    font-size: 1rem;
+}
+
+.preco-produto {
+    font-weight: 700;
+    color: var(--rosa-escuro);
+}
+
+.status {
+    color: var(--texto-suave);
+    font-size: 0.82rem;
+}
+
+.status.comprado {
+    color: var(--verde);
+}
+
+.acoes-produto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.acoes-produto button,
+.link-loja {
+    padding: 9px 10px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.botao-comprar {
+    flex: 1;
+    border: none;
+    color: white;
+    background: var(--rosa);
+}
+
+.botao-excluir {
+    border: 1px solid var(--borda);
+    color: var(--texto-suave);
+    background: white;
+}
+
+.link-loja {
+    display: inline-block;
+    color: var(--rosa-escuro);
+    border: 1px solid var(--borda);
+}
+
+@media (max-width: 400px) {
+    .conteudo-produto {
+        padding: 10px;
+    }
+
+    .acoes-produto {
+        flex-direction: column;
+    }
+
+    .acoes-produto button {
+        width: 100%;
+    }
+}
+
+
+.cartao-orcamento {
+    width: 100%;
+    font-family: inherit;
+    text-align: left;
+    color: var(--texto);
+    cursor: pointer;
+}
+
+.cartao-orcamento small {
+    display: block;
+    margin-top: 8px;
+    color: var(--rosa-escuro);
+    font-size: 0.75rem;
+}
+
+.painel-orcamento {
+    margin: -18px 0 36px;
+    padding: 22px;
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+}
+
+.painel-orcamento[hidden] {
+    display: none;
+}
+
+#formulario-orcamento {
+    display: grid;
+    gap: 12px;
+}
+
+#formulario-orcamento label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+#formulario-orcamento input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: #fffafb;
+    color: var(--texto);
+    font: inherit;
+}
+
+.progresso-orcamento {
+    margin-top: 24px;
+}
+
+.barra-progresso {
+    width: 100%;
+    height: 12px;
+    overflow: hidden;
+    background: var(--rosa-claro);
+    border-radius: 20px;
+}
+
+#barra-orcamento {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #f2aac1, #ce6b91);
+    border-radius: inherit;
+    transition: width 0.3s ease;
+}
+
+#resumo-orcamento {
+    margin-top: 10px;
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+}
